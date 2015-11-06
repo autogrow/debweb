@@ -1,14 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @branch.name %>
-</p>
+<h1><%= @branch.project.name %>:  <%= @branch.name %></h1>
 
-<p>
-  <strong>Project:</strong>
-  <%= @branch.project_id %>
-</p>
+<h2>Packages</h2>
+
+<%= render partial: 'packages/table', locals: { packages: @branch.packages } %>
 
 <%= link_to 'Edit', edit_branch_path(@branch) %> |
 <%= link_to 'Back', branches_path %>

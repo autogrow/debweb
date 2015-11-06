@@ -2,27 +2,7 @@
 
 <h1>Listing Branches</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Project</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @branches.each do |branch| %>
-      <tr>
-        <td><%= branch.name %></td>
-        <td><%= branch.project_id %></td>
-        <td><%= link_to 'Show', branch %></td>
-        <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
-        <td><%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'branches/table', locals: { branches: @project.branches } %>
 
 <br>
 
