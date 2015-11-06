@@ -1,0 +1,9 @@
+---
+:aptly:
+  :path: ./aptly
+  :exec: /usr/bin/aptly
+  :config: ./aptly.conf
+  :repos:
+    :multigrow:
+      :stable:
+      :testing:
