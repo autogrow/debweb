@@ -1,5 +1,5 @@
 class BranchesController < ApplicationController
-  before_action :set_branch, only: [:show, :edit, :update, :destroy]
+  before_action :set_branch, only: [:show, :edit, :update, :destroy, :add_packages]
 
   # GET /branches
   # GET /branches.json
@@ -61,14 +61,19 @@ class BranchesController < ApplicationController
     end
   end
 
+  def add_packages
+    service = Services::PackageAssignment.new(@branch)
+    service.process(params[:package_ids])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_branch
-      @branch = Branch.find(params[:id])
+      @branch = Branch.find(params[:id] || params[:branch_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
-      params.require(:branch).permit(:name, :project_id)
+      params.require(:branch).permit(:name, :project_id, :package_ids, :branch_id)
     end
 end
