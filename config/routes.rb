@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :debfiles
   resources :projects
   resources :branches do
     collection do

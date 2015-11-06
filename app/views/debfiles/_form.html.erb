@@ -1,0 +1,29 @@
+<%= form_for(@debfile) do |f| %>
+  <% if @debfile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@debfile.errors.count, "error") %> prohibited this debfile from being saved:</h2>
+
+      <ul>
+      <% @debfile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :control %><br>
+    <%= f.text_area :control %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br>
+    <%= f.text_field :version %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

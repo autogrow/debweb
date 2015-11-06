@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Debfiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Control</th>
+      <th>Version</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @debfiles.each do |debfile| %>
+      <tr>
+        <td><%= debfile.name %></td>
+        <td><%= debfile.control %></td>
+        <td><%= debfile.version %></td>
+        <td><%= link_to 'Show', debfile %></td>
+        <td><%= link_to 'Edit', edit_debfile_path(debfile) %></td>
+        <td><%= link_to 'Destroy', debfile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Debfile', new_debfile_path %>

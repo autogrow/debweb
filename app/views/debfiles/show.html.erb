@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @debfile.name %>
+</p>
+
+<p>
+  <strong>Control:</strong>
+  <%= @debfile.control %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @debfile.version %>
+</p>
+
+<%= link_to 'Edit', edit_debfile_path(@debfile) %> |
+<%= link_to 'Back', debfiles_path %>

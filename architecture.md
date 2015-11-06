@@ -63,3 +63,8 @@ When the package is added, and the package exists in the Library, the package is
 * branch ID
 * version
 * path
+
+### Debfile
+
+The package as it exists on the filesystem.  The package files in the repository are hardlinked from this file
+to save space when the same package is used across multiple branches.
