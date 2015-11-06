@@ -5,22 +5,24 @@ class Debfile < ActiveRecord::Base
 
   has_many :packages
 
+  #after_initialize :read_control_file
   before_create :read_control_file
 
-  def path
-    "#{@path}/#{@name}"
+  def filepath
+    File.join(path, name)
   end
 
   def read_control_file
-    path     = "#{@path}/#{@name}"
-    data     = `dpkg-deb -I #{path}`.chomp
-    @control = {}
+    data  = `dpkg-deb -I #{filepath}`.chomp
+    hash = {}
     
     ::DebianControlParser.new(data).paragraphs do |p|
       p.fields do |field, value|
-        @control[field] = value
+        hash["field"] = value
       end
     end
+    
+    write_attribute(:control,  hash)
   end
 
     

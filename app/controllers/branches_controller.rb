@@ -63,7 +63,9 @@ class BranchesController < ApplicationController
 
   def add_packages
     service = Services::PackageAssignment.new(@branch)
-    service.process(params[:debfile_ids])
+    result = service.process(params[:debfile_ids])
+    
+    redirect_to :back, flash: result
   end
 
   private

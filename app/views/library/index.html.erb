@@ -19,7 +19,7 @@
     <tr>
       <td><%= deb.name %></td>
       <td><%= (File.size(deb.path).to_f / 1024 / 1024).round(2) %> MB</td>
-      <td><%= check_box_tag "debfile_ids[]", value: deb.id %></td>
+      <td><%= check_box_tag "debfile_ids[]", deb.id %></td>
     </tr>
     <% end %>
   </tbody>
