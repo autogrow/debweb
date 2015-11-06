@@ -9,7 +9,7 @@
   </thead>
 
   <tbody>
-    <% (branches || @branches).each do |branch| %>
+    <% (branches).each do |branch| %>
       <tr>
         <td><%= branch.name %></td>
         <td><%= link_to branch.project.name, branch.project %></td>

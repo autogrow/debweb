@@ -2,7 +2,7 @@
 
 <p>Path: <%= @library.path %> (<%= @library.size %>)</p>
 
-<%= form_tag 'branches/add_pacakges' do %>
+<%= form_tag 'branches/add_packages' do %>
 
 <p><%= submit_tag "Add packages to branch: " %> <%= select_tag :branch_id, options_for_select(@branches) %></p>
 
@@ -15,11 +15,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @library.files.each do |file| %>
+    <% @debfiles.each do |deb| %>
     <tr>
-      <td><%= File.basename file %></td>
-      <td><%= (File.size(file).to_f / 1024 / 1024).round(2) %> MB</td>
-      <td><%= check_box_tag "adding[]", value: file %></td>
+      <td><%= deb.name %></td>
+      <td><%= (File.size(deb.path).to_f / 1024 / 1024).round(2) %> MB</td>
+      <td><%= check_box_tag "debfile_ids[]", value: deb.id %></td>
     </tr>
     <% end %>
   </tbody>

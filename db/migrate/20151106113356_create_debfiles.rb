@@ -4,6 +4,7 @@ class CreateDebfiles < ActiveRecord::Migration
       t.string :name
       t.text :control
       t.string :version
+      t.string :path
 
       t.timestamps null: false
     end

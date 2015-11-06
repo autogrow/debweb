@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20151106113356) do
     t.string   "name"
     t.text     "control"
     t.string   "version"
+    t.string   "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
