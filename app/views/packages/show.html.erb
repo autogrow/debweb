@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @package.name %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @package.branch_id %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @package.version %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @package.path %>
+</p>
+
+<p>
+  <strong>Control:</strong>
+  <%= @package.control %>
+</p>
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>
