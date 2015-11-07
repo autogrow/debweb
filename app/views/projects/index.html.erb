@@ -19,6 +19,7 @@
       <tr>
         <td><%= link_to project.name, project %></td>
         <td><%= raw project.branches.map {|b| link_to(b.name, b) }.join(', ') %></td>
+        <td><%= link_to "Build", build_project_path(project) %></td>
       </tr>
     <% end %>
   </tbody>

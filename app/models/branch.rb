@@ -3,6 +3,6 @@ class Branch < ActiveRecord::Base
   has_many :packages
 
   def repo_name
-    "#{project.name.downcase}-#{@name.downcase}"
+    "#{project.name.downcase}-#{name.downcase}"
   end
 end

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :build]
 
   # GET /projects
   # GET /projects.json
@@ -59,6 +59,13 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def build
+    strio = StringIO.new
+    log   = Logger.new strio
+    Services::AptlyBuilder.new(@project, log).process
+    @log  = strio.string
   end
 
   private

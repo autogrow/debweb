@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :debfiles
-  resources :projects
+  resources :projects do
+    member do
+      get 'build', action: :build
+    end
+  end
+  
   resources :branches do
     collection do
       post :add_packages
