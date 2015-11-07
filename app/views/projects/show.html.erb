@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Project:  <%= @project.name %></h1>
+<h1>Project: <%= @project.name %></h1>
 
 <h2>Branches</h2>
+
+<%= form_for(Branch.new) do |f| %>
+  <p><%= f.text_field :name, placeholder: "Branch Name" %> <%= f.submit %></p>
+  <%= f.hidden_field :project_id, value: @project.id %>
+<% end %>
 
 <%= render partial: 'branches/table', locals: { branches: @project.branches } %>
 

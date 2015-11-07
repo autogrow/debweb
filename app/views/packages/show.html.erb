@@ -1,29 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @package.name %>
-</p>
+<h1><%= @package.name %> <small><%= @package.version %></small></h1>
 
-<p>
-  <strong>Branch:</strong>
-  <%= @package.branch_id %>
-</p>
+<dl class="dl-horizontal" style="font-size: 150%">
+  <dt>Branch</dt><dd><%= @package.branch.project.name %> / <%= @package.branch.name %></dd>
+  <dt>Architecture</dt><dd><%= @package.control["Architecture"] %></dd>
+  <dt>Package Path</dt><dd><%= @package.path %></dd>
+  <dt>Debfile Path</dt><dd><%= @package.debfile.filepath %></dd>
+</dl>
 
-<p>
-  <strong>Version:</strong>
-  <%= @package.version %>
-</p>
 
-<p>
-  <strong>Path:</strong>
-  <%= @package.path %>
-</p>
 
-<p>
-  <strong>Control:</strong>
-  <%= @package.control %>
-</p>
+  <h3>Control File</h3>
+  <pre>
+    <% @package.control.each do |field, value| %>
+    <%= "%-15s %s" % [field+':', value] %>
+    <% end %>
+  </pre>
 
 <%= link_to 'Edit', edit_package_path(@package) %> |
 <%= link_to 'Back', packages_path %>

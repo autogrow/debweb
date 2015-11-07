@@ -9,7 +9,7 @@ class LibraryController < ApplicationController
     @debfiles = Debfile.all
 
     @branches = Branch.all.map do |b|
-      ["#{b.project.name}: #{b.name}", b.id]
+      ["#{b.project.try(:name) || 'none'}: #{b.name}", b.id]
     end
 
   end
