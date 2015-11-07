@@ -7,6 +7,8 @@ gem 'rails', '4.2.4'
 gem 'sqlite3'
 
 gem 'debian-control-parser'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -4,22 +4,25 @@
 
 <%= form_tag 'branches/add_packages' do %>
 
-<p><%= submit_tag "Add packages to branch: " %> <%= select_tag :branch_id, options_for_select(@branches) %></p>
+<p>
+  <%= submit_tag "Add packages to branch: " %>
+  <%= select_tag :branch_id, options_for_select(@branches) %>
+</p>
 
-<table>
+<table class="table table-hover table-striped">
   <thead>
     <tr>
+      <th width="5px"></th>
       <th>Name</th>
       <th>Size</th>
-      <th width="5px"></th>
     </tr>
   </thead>
   <tbody>
     <% @debfiles.each do |deb| %>
     <tr>
-      <td><%= deb.name %></td>
-      <td><%= (File.size(deb.path).to_f / 1024 / 1024).round(2) %> MB</td>
       <td><%= check_box_tag "debfile_ids[]", deb.id %></td>
+      <td><%= deb.name %></td>
+      <td><%= (File.size(deb.filepath).to_f / 1024 / 1024).round(2) %> MB</td>
     </tr>
     <% end %>
   </tbody>
