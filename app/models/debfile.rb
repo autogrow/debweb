@@ -18,7 +18,7 @@ class Debfile < ActiveRecord::Base
     
     ::DebianControlParser.new(data).paragraphs do |p|
       p.fields do |field, value|
-        hash["field"] = value
+        hash[field.strip!] = value
       end
     end
     
