@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'debian-control-parser'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'aptly'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

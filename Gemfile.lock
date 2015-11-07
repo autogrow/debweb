@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    aptly (0.1.0)
     arel (6.0.3)
     autoprefixer-rails (6.1.0.1)
       execjs
@@ -146,6 +147,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aptly
   autoprefixer-rails
   bootstrap-sass
   byebug
