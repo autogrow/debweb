@@ -12,6 +12,10 @@ class Debfile < ActiveRecord::Base
     File.join(path, name)
   end
 
+  def exist?
+    File.exist? filepath
+  end
+
   def read_control_file
     data  = `dpkg-deb -I #{filepath}`.chomp
     hash = {}
