@@ -1,6 +1,12 @@
 
 <h1>Project: <%= @project.name %></h1>
 
+This project has two branches.  You can import them all using this directive:
+
+<pre>
+deb http://debian.example.com/ <%= @project.name.downcase %> <%= @project.branches.map {|b| b.name.downcase }.join(' ') %>
+</pre>
+
 <h2>Branches</h2>
 
 <%= form_for(Branch.new) do |f| %>
