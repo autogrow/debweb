@@ -1,6 +1,6 @@
 # debweb
 
-Simple Web Interface for Aptly written in Rails.
+Simple Web Interface for [Aptly](http://www.aptly.info/) written in Rails.
 
 ## How does it work
 
@@ -20,15 +20,25 @@ deb http://debian.example.com vivid restricted contrib
 
 ## Requirements
 
-Aptly is required, this can be installed from the Debian repositories.
+[Aptly](http://www.aptly.info/) is required, this can be installed from the Debian repositories.
+
+```sh
+apt-get install aptly
+```
 
 It will probably only work on a Debian based distro but as long as the OS meets the aptly requirements and provides access to the `dpkg-deb` executable it should run.
 
 ## Installation
 
+Assuming you already have Ruby 2.2 or higher:
+
 Clone it:
 
     $ git clone https://github.com/AutogrowSystems/debweb.git
+
+Bundle it:
+
+    $ bundle
 
 Build the database:
 
