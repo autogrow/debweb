@@ -96,6 +96,7 @@ server {
 * GPG key signing
 * file deduplication through hardlinking
 * **RSPEC TESTS** (currently this is a hack job I put together in 5 hours)
+* repository verification - making sure your projects/branches/packages are published
 
 ## Acknowledgements
 
