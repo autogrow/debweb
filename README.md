@@ -69,6 +69,8 @@ Run it:
 
     $ rails s
 
+Manage it at [http://localhost:3000](http://localhost:3000).
+
 Serve the repository with apache, nginx or similar (default location is `/home/you/.aptly/public`).
 
 ```nginx
@@ -94,3 +96,8 @@ server {
 * GPG key signing
 * file deduplication through hardlinking
 * **RSPEC TESTS** (currently this is a hack job I put together in 5 hours)
+
+## Acknowledgements
+
+* [Aptly](http://www.aptly.info/) - pretty awesome and fast Debian repository manager
+* [@ryanuber](https://github.com/ryanuber)'s awesome [ruby-aptly](https://github.com/ryanuber/ruby-aptly) library
