@@ -46,6 +46,9 @@
               <li><%= link_to "Library", library_path %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to "Signed in as #{current_user.email}", edit_user_registration_path(current_user) %></li>
+            <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

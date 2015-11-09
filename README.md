@@ -88,16 +88,16 @@ server {
 
 ## Todo
 
-* user authentication
-* event logging (e.g. 'tom added package x to wheezy stable')
-* drag and drop package upload
-* HTTP package upload using API key (for use with CI)
-* *maybe* debian repository serving (not sure if the management interface should also serve packages RE security)
-* GPG key signing
-* file deduplication through hardlinking
-* **RSPEC TESTS** (currently this is a hack job I put together in 5 hours)
-* repository verification - making sure your projects/branches/packages are published
-* kill turbolinks right in the face
+- [x] user authentication
+- [ ] event logging (e.g. 'tom added package x to wheezy stable')
+- [ ] drag and drop package upload
+- [ ] HTTP package upload using API key (for use with CI)
+- [ ] *maybe* debian repository serving (not sure if the management interface should also serve packages RE security)
+- [ ] GPG key signing
+- [ ] file deduplication through hardlinking
+- [ ] **RSPEC TESTS** (currently this is a hack job I put together in 5 hours)
+- [ ] repository verification - making sure your projects/branches/packages are published
+- [ ] kill turbolinks right in the face
 
 ## Acknowledgements
 
