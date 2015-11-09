@@ -44,6 +44,11 @@ Build the database:
 
     $ rake db:migrate
 
+Add your first user (there will be a default user soon):
+
+    $ rails c
+    irb> User.new(email: "you@example.com", password: "12345678").save!
+
 Create an `~/.aptly.conf` file:
 
 ```json
