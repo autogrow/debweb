@@ -10,6 +10,7 @@ class BranchesController < ApplicationController
   # GET /branches/1
   # GET /branches/1.json
   def show
+    @debfiles = Debfile.all.map {|d| [d.name, d.id] }
   end
 
   # GET /branches/new

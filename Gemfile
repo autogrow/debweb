@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'autoprefixer-rails'
 gem 'aptly'
+gem 'select2-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

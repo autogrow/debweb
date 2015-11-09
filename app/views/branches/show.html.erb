@@ -8,7 +8,13 @@ deb http://debian.example.com/ <%= @branch.project.name.downcase %> <%= @branch.
 
 <h2>Packages</h2>
 
+<%= form_tag 'add_packages' do %>
+  <%= hidden_field_tag :branch_id, @branch.id %>
+  <div class="form-inline">
+    <%= select_tag 'debfile_ids[]', options_for_select(@debfiles) %>
+  </div>
+<% end %>
+
+
 <%= render partial: 'packages/table', locals: { packages: @branch.packages } %>
 
-<%= link_to 'Edit', edit_branch_path(@branch) %> |
-<%= link_to 'Back', branches_path %>
