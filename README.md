@@ -97,7 +97,7 @@ server {
 
 You can upload a package from a script:
 
-   $ curl -i -F debfile=@mycooldeb.deb http://localhost:3000/api/v1/debfiles/upload/YOUR_TOKEN_HERE
+    $ curl -i -F debfile=@mycooldeb.deb http://localhost:3000/api/v1/debfiles/upload/YOUR_TOKEN_HERE
    
 Currently it will only return two status codes; 200 for all good, or 400 for invalid file or file exists.  There is a log located at `log/uploads.log` for troubleshooting.
 
