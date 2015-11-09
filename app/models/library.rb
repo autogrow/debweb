@@ -20,4 +20,8 @@ class Library
     mbytes = (bytes / 1024 / 1024).round
     "#{mbytes}MB"
   end
+
+  def scan
+    Services::LibraryScanner.new(self).process
+  end
 end
