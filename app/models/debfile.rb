@@ -1,5 +1,3 @@
-require 'debian_control_parser'
-
 class Debfile < ActiveRecord::Base
   serialize :control, Hash
 
@@ -17,14 +15,7 @@ class Debfile < ActiveRecord::Base
   end
 
   def read_control_file
-    data  = `dpkg-deb -I #{filepath}`.chomp
-    hash = {}
-    
-    ::DebianControlParser.new(data).paragraphs do |p|
-      p.fields do |field, value|
-        hash[field.strip!] = value
-      end
-    end
+    hash = DebianFileScanner.scan(filepath)
     
     write_attribute(:control, hash)
     write_attribute(:version, control["Version"])
