@@ -9,6 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+// ssss= require jquery-fileupload/basic-plus
 //
 //= require jquery
 //= require jquery_ujs

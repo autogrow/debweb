@@ -91,7 +91,7 @@ server {
 - [x] user authentication
 - [ ] event logging (e.g. 'tom added package x to wheezy stable')
 - [ ] drag and drop package upload
-- [ ] HTTP package upload using API key (for use with CI)
+- [x] HTTP package upload using API key (for use with CI)
 - [ ] *maybe* debian repository serving (not sure if the management interface should also serve packages RE security)
 - [ ] GPG key signing
 - [ ] file deduplication through hardlinking
