@@ -3,7 +3,7 @@ class Library
   attr_reader :path
 
   def initialize
-    @path = "./library"  #Settings.get("library_path")
+    @path = File.expand_path("./library")  #Settings.get("library_path")
     @size = nil
   end
 
@@ -16,6 +16,8 @@ class Library
   end
 
   def measure_size
-    `du -sh #{@path}`.chomp.split.first
+    bytes  = `du -sb #{@path}`.chomp.split.first.to_i
+    mbytes = (bytes / 1024 / 1024).round
+    "#{mbytes}MB"
   end
 end

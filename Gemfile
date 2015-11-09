@@ -8,6 +8,7 @@ gem 'sqlite3'
 
 gem 'debian-control-parser'
 gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
 gem 'autoprefixer-rails'
 gem 'aptly'
 

@@ -14,4 +14,10 @@ class LibraryController < ApplicationController
 
   end
 
+  def rescan
+    Debfile.all.each {|d| d.destroy }
+    @service = ::Services::LibraryScanner.new(@library)
+    redirect_to library_path, flash: { success: "Rescanned the library" }
+  end
+
 end

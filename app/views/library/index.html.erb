@@ -1,12 +1,14 @@
-<h1>Library</h1>
+<h1>Library <small><%= @library.size %> <%= @library.path %></small></h1>
 
-<p>Path: <%= @library.path %> (<%= @library.size %>)</p>
+<div class="pull-right"><%= button_to "Delete and Rescan", rescan_library_path, class: "btn btn-warning" %></div>
 
 <%= form_tag 'branches/add_packages' do %>
 
 <p>
-  <%= submit_tag "Add packages to branch: " %>
-  <%= select_tag :branch_id, options_for_select(@branches) %>
+  <div class="form-inline">
+    <%= submit_tag "Add packages to branch: ", class: "btn btn-primary form-control" %>
+    <%= select_tag :branch_id, options_for_select(@branches), class: "form-control" %>
+  </div>
 </p>
 
 <table class="table table-hover table-striped">
@@ -14,6 +16,7 @@
     <tr>
       <th width="5px"></th>
       <th>Name</th>
+      <th>Version</th>
       <th>Size</th>
     </tr>
   </thead>
@@ -21,8 +24,9 @@
     <% @debfiles.each do |deb| %>
     <tr>
       <td><%= check_box_tag "debfile_ids[]", deb.id %></td>
-      <td><%= deb.name %></td>
-      <td><%= (File.size(deb.filepath).to_f / 1024 / 1024).round(2) %> MB</td>
+      <td><%= link_to deb.name, deb %></td>
+      <td><%= deb.version %></td>
+      <td><%= deb.megabytes %> MB</td>
     </tr>
     <% end %>
   </tbody>

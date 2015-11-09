@@ -14,8 +14,8 @@
     <% packages.each do |package| %>
       <tr>
         <td><%= link_to package.name, package %></td>
-        <td><%= package.version %></td>
         <td><%= project_link package.branch.project %> / <%= link_to package.branch.name, package.branch %></td>
+        <td><%= package.version %></td>
         <td><%= package.control["Architecture"] %></td>
         <td><%= package.path %></td>
         <td><%= link_to 'Show', package %></td>

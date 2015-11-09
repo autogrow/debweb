@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @debfile.name %>
-</p>
+<h1><%= @debfile.package_name %> <small><%= @debfile.version %></small></h1>
 
-<p>
-  <strong>Control:</strong>
-  <%= @debfile.control %>
-</p>
+<dl class="dl-horizontal" style="font-size: 150%">
+  <dt>Filename</dt><dd><%= @debfile.name %></dd>
+  <dt>Architecture</dt><dd><%= @debfile.control["Architecture"] %></dd>
+  <dt>Filesize</dt><dd><%= @debfile.human_size %></dd>
+  <dt>Depends</dt><dd><%= @debfile.control["Depends"] %></dd>
+  <dt>Maintainer</dt><dd><%= @debfile.control["Maintainer"] %></dd>
+  <dt>Homepage</dt><dd><%= @debfile.control["Homepage"] %></dd>
+  <dt>Modified At</dt><dd><%= @debfile.modified_at %></dd>
+  <dt>Created At</dt><dd><%= @debfile.created_at %></dd>
+</dl>
 
-<p>
-  <strong>Version:</strong>
-  <%= @debfile.version %>
-</p>
+<% unless @debfile.other_versions.count.zero? %>
+  <h2>Other Versions</h2>
 
-<%= link_to 'Edit', edit_debfile_path(@debfile) %> |
-<%= link_to 'Back', debfiles_path %>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Version</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @debfile.other_versions.each do |deb| %>
+      <tr>
+        <td><%= link_to deb.name, deb %></td>
+        <td><%= deb.version %></td>
+        <td><%= deb.megabytes %> MB</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<h2>Packages</h2>
+
+<%= render partial: 'packages/table', locals: { packages: @debfile.packages } %>
+

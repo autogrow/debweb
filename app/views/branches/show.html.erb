@@ -1,9 +1,9 @@
-<h1><%= @branch.project.name %>:  <%= @branch.name %></h1>
+<h1><%= @branch.name %> <small><%= @branch.project.name %></small></h1>
 
 You can import this branch using the following directive:
 
 <pre>
-deb http://debian.example.com/ <%= @branch.project.name %> <%= @branch.name %>
+deb http://debian.example.com/ <%= @branch.project.name.downcase %> <%= @branch.name.downcase %>
 </pre>
 
 <h2>Packages</h2>
