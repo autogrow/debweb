@@ -47,7 +47,9 @@ Build the database:
 Add your first user (there will be a default user soon):
 
     $ rails c
-    irb> User.new(email: "you@example.com", password: "12345678").save!
+    irb> u = User.new(email: "you@example.com", password: "12345678")
+    irb> u.token = ApiToken.generate
+    irb> u.save
 
 Create an `~/.aptly.conf` file:
 
@@ -91,6 +93,10 @@ server {
 }
 ```
 
+Upload packages from a script:
+
+   $ curl -i -F debfile=@mycooldeb.deb http://localhost:3000/api/v1/debfiles/upload/YOUR_TOKEN_HERE
+
 ## Todo
 
 - [x] user authentication
@@ -98,11 +104,13 @@ server {
 - [ ] drag and drop package upload
 - [x] HTTP package upload using API key (for use with CI)
 - [ ] *maybe* debian repository serving (not sure if the management interface should also serve packages RE security)
+- [x] Debian filename normalization (`package_version_architecture.deb`)
 - [ ] GPG key signing
 - [ ] file deduplication through hardlinking
 - [ ] **RSPEC TESTS** (currently this is a hack job I put together in 5 hours)
 - [ ] repository verification - making sure your projects/branches/packages are published
 - [ ] kill turbolinks right in the face
+- [ ] auto adding of updated packages
 
 ## Acknowledgements
 
