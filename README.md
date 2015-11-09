@@ -49,7 +49,7 @@ Add your first user (there will be a default user soon):
     $ rails c
     irb> u = User.new(email: "you@example.com", password: "12345678")
     irb> u.token = ApiToken.generate
-    irb> u.save
+    irb> u.save!
 
 Create an `~/.aptly.conf` file:
 
@@ -93,9 +93,13 @@ server {
 }
 ```
 
-Upload packages from a script:
+### Uploading packages
+
+You can upload a package from a script:
 
    $ curl -i -F debfile=@mycooldeb.deb http://localhost:3000/api/v1/debfiles/upload/YOUR_TOKEN_HERE
+   
+Currently it will only return two status codes; 200 for all good, or 400 for invalid file or file exists.  There is a log located at `log/uploads.log` for troubleshooting.
 
 ## Todo
 
