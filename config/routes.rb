@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :debfiles
+  resources :debfiles do
+    post 'upload', action: :upload
+  end
+
   resources :projects do
     member do
       get 'build', action: :build

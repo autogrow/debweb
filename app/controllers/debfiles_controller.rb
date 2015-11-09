@@ -61,6 +61,24 @@ class DebfilesController < ApplicationController
     end
   end
 
+  def upload
+    log = Logger.new Rails.root.join('log', 'uploads.log')
+    io  = params[:debfile]
+    log.info "Receiving #{io.original_filename} from #{current_user.email}"
+    
+    filename = Rails.root.join('public', 'uploads', io.original_filename)
+
+    File.open(filename, 'wb') do |file|
+      file.write(io.read)
+    end
+    log.info "Saved #{io.original_filename} to uploads folder"
+
+    svc = Services::UploadedFileImporter.new(filename, log)
+    svc.process(Library.new)
+
+    render :nothing, status: 200
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_debfile

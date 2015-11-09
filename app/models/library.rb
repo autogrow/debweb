@@ -1,10 +1,13 @@
 class Library
 
-  attr_reader :path
-
   def initialize
     @path = File.expand_path("./library")  #Settings.get("library_path")
     @size = nil
+  end
+
+  def path(fn=nil)
+    return "#{@path}/#{fn}" if fn
+    @path
   end
 
   def files
