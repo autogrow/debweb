@@ -23,7 +23,7 @@ module Services
         @log.info "Need to create #{b.repo_name}"
         
         begin
-          Aptly.create_repo b.repo_name, dist: @project.name.downcase, component: b.name.downcase
+          Aptly.create_repo b.repo_name, dist: @project.repo_name, component: b.repo_name
           @log.info "Repo #{b.repo_name} was created"
         rescue AptlyError => e
           @log.error e
@@ -56,10 +56,10 @@ module Services
         name = b.repo_name
         repo = Aptly::Repo.new name
         begin
-          repo.publish sign: false, component: b.name.downcase
+          repo.publish sign: false, component: b.repo_name
           @log.info "Published repo #{name} for the first time"
         rescue AptlyError
-          system "aptly publish update #{@project.name.downcase}"
+          system "aptly publish update #{@project.repo_name}"
           if $?.success?
             @log.info "Updated published packages for #{name}"
           else

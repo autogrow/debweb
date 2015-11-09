@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109092148) do
+ActiveRecord::Schema.define(version: 20151109101550) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "name"
     t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "repo_name"
   end
 
   create_table "debfiles", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151109092148) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "repo_name"
   end
 
 end

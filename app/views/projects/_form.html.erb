@@ -11,9 +11,23 @@
     </div>
   <% end %>
 
+  <div class="form-horizontal">
+    <div class="form-group">
+      <%= f.label :name, class: "control-label col-sm-2" %>
+      <div class="col-sm-5">
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :repo_name, class: "control-label col-sm-2" %>
+      <div class="col-sm-5">
+        <%= f.text_field :repo_name, class: 'form-control' %>
+      </div>
+    </div>
+  </dl>
+
+
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

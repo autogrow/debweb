@@ -1,10 +1,13 @@
+<div class="pull-right ops button-group">
+  <%= link_to glyph('edit'), edit_project_path(@project), class: "btn btn-sm btn-success" %>
+</div>
 
 <h1>Project: <%= @project.name %></h1>
 
 This project has two branches.  You can import them all using this directive:
 
 <pre>
-deb http://debian.example.com/ <%= @project.name.downcase %> <%= @project.branches.map {|b| b.name.downcase }.join(' ') %>
+deb http://debian.example.com/ <%= @project.repo_name %> <%= @project.repo_names.join(' ') %>
 </pre>
 
 <h2>Branches</h2>
@@ -16,5 +19,3 @@ deb http://debian.example.com/ <%= @project.name.downcase %> <%= @project.branch
 
 <%= render partial: 'branches/table', locals: { branches: @project.branches } %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>

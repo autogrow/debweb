@@ -1,9 +1,13 @@
+<div class="pull-right ops button-group">
+  <%= link_to glyph('edit'), edit_branch_path(@branch), class: "btn btn-sm btn-success" %>
+</div>
+
 <h1><%= @branch.name %> <small><%= @branch.project.name %></small></h1>
 
 You can import this branch using the following directive:
 
 <pre>
-deb http://debian.example.com/ <%= @branch.project.name.downcase %> <%= @branch.name.downcase %>
+deb http://debian.example.com/ <%= @branch.project.repo_name %> <%= @branch.repo_name %>
 </pre>
 
 <h2>Packages</h2>
