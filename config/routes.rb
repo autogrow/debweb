@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    namespace :v1 do
+      post 'debfiles/upload/:token' => 'debfiles#upload'
+    end
+  end
+
   devise_for :users
   resources :debfiles do
     post 'upload', action: :upload
@@ -25,6 +32,7 @@ Rails.application.routes.draw do
 
   get 'library' => 'library#index', as: :library
   get 'library/rescan' => 'library#rescan', as: :rescan_library
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
