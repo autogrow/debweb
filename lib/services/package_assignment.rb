@@ -27,13 +27,15 @@ module Services
       
       return case
       when (dupes.zero? and saved.zero? and failed.zero?)
-        {notice: "Nothing was done"}
+        {warning: "Nothing was done"}
       when saved == debfile_ids.size
-        {notice: "Added #{saved} packages to #{@branch.name}"}
+        {success: "Added #{saved} packages to #{@branch.name}"}
       when dupes > 0
-        {notice: "Added #{saved} packages, #{dupes} were already added"}
+        {success: "Added #{saved} packages, #{dupes} were already added"}
+      when (failed > 0 and success.zero? and dupes.zero?)
+        {error: "Failed to add every package" }
       when (failed > 0 and success > 0)
-        {error: "Added #{success} but #{failed} failed"}
+        {warning: "Added #{success} but #{failed} failed"}
       end
     end
   end

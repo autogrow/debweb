@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     collection do
       post :add_packages
     end
+
+    member do
+      get 'auto_add/:package_id', action: :auto_add, as: :auto_add_package
+    end
   end
   
   resources :packages

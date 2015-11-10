@@ -3,6 +3,8 @@ class CreatePackages < ActiveRecord::Migration
     create_table :packages do |t|
       t.integer :branch_id
       t.integer :debfile_id
+      t.string :name
+      t.string :version
       t.string :path
 
       t.timestamps null: false

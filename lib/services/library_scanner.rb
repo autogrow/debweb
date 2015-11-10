@@ -13,6 +13,8 @@ module Services
         @created << Debfile.create(name: fn, path: @library.path)
         Services::DebfileNormalizer.new(@created.last).process
       end
+
+      Services::AutoPackageAdd.new(@created).process
     end
   
   end

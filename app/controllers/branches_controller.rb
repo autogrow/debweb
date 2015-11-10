@@ -1,5 +1,5 @@
 class BranchesController < ApplicationController
-  before_action :set_branch, only: [:show, :edit, :update, :destroy, :add_packages]
+  before_action :set_branch, only: [:show, :edit, :update, :destroy, :add_packages, :auto_add]
 
   # GET /branches
   # GET /branches.json
@@ -69,6 +69,25 @@ class BranchesController < ApplicationController
     redirect_to :back, flash: result
   end
 
+  def auto_add
+    name = Package.find(params[:package_id]).name
+    if @branch.auto_added?(name)
+      @branch.stop_auto_adding(name)
+      msg = "The package #{name} will not be automatically added anymore"
+    else
+      @branch.auto_add(name)
+      msg = "The package #{name} will be automatically added when a new version is added to the library"
+    end
+
+    if @branch.save and @branch.auto_added?(name)
+      flash = {success: msg}
+    else
+      flash = {error: "Failed to save the changes"}
+    end
+
+    redirect_to :back, flash: flash
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_branch
@@ -77,6 +96,6 @@ class BranchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
-      params.require(:branch).permit(:name, :project_id, :debfile_ids, :branch_id, :repo_name)
+      params.require(:branch).permit(:name, :project_id, :debfile_ids, :branch_id, :repo_name, :package_id)
     end
 end

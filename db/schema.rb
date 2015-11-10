@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109104046) do
+ActiveRecord::Schema.define(version: 20151110112818) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "repo_name"
+    t.text     "auto_added_packages"
   end
 
   create_table "debfiles", force: :cascade do |t|
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(version: 20151109104046) do
   create_table "packages", force: :cascade do |t|
     t.integer  "branch_id"
     t.integer  "debfile_id"
+    t.string   "name"
+    t.string   "version"
     t.string   "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
