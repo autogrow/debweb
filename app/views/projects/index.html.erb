@@ -4,7 +4,8 @@
 
 <%= form_for(Project.new) do |f| %>
   <div class="form-inline">
-    <%= f.text_field :name, placeholder: "Project Name", class: "form-control" %> <%= f.submit class: "form-control btn btn-primary" %></p>
+    <%= f.text_field :name, autofocus: true, placeholder: "Project Name", class: "form-control" %>
+    <%= f.submit class: "form-control btn btn-primary" %></p>
   </div>
 <% end %>                                                                
 

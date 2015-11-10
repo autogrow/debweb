@@ -14,7 +14,8 @@ deb http://debian.example.com/ <%= @project.repo_name %> <%= @project.repo_names
 
 <%= form_for(Branch.new) do |f| %>
   <div class="form-inline">
-    <%= f.text_field :name, placeholder: "Branch Name", class: "form-control" %> <%= f.submit class: "form-control btn btn-primary" %>
+    <%= f.text_field :name, autofocus: true, placeholder: "Branch Name", class: "form-control" %>
+    <%= f.submit class: "form-control btn btn-primary" %>
   </div>
   <%= f.hidden_field :project_id, value: @project.id %>
 <% end %>
