@@ -3,7 +3,9 @@
 <h1>Projects</h1>
 
 <%= form_for(Project.new) do |f| %>
-   <p><%= f.text_field :name, placeholder: "Project Name" %> <%= f.submit %></p>
+  <div class="form-inline">
+    <%= f.text_field :name, placeholder: "Project Name", class: "form-control" %> <%= f.submit class: "form-control btn btn-primary" %></p>
+  </div>
 <% end %>                                                                
 
 <table class="table table-hover table-striped">
