@@ -1,5 +1,7 @@
 <div class="pull-right ops button-group">
-  <%= link_to glyph('edit'), edit_project_path(@project), class: "btn btn-sm btn-success" %>
+  <%= link_to glyph('edit'), edit_project_path(@project), class: "btn btn-success" %>
+  <%= link_to glyph('repeat')+" Rebuild", edit_project_path(@project), class: "btn btn-warning" %>
+  <%= link_to glyph('refresh')+" Refresh", edit_project_path(@project), class: "btn btn-info" %>
 </div>
 
 <h1>Project: <%= @project.name %></h1>
@@ -7,7 +9,7 @@
 This project has two branches.  You can import them all using this directive:
 
 <pre>
-deb http://debian.example.com/ <%= @project.repo_name %> <%= @project.repo_names.join(' ') %>
+deb http://debian.example.com/ <%= @project.distribution_name %> <%= @project.components.join(' ') %>
 </pre>
 
 <h2>Branches</h2>

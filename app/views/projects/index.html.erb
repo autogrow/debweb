@@ -14,6 +14,7 @@
     <tr>
       <th>Name</th>
       <th>Branches</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -22,7 +23,10 @@
       <tr>
         <td><%= link_to project.name, project %></td>
         <td><%= raw project.branches.map {|b| link_to(b.name, b) }.join(', ') %></td>
-        <td><%= link_to "Build", build_project_path(project) %></td>
+        <td>
+          <%= link_to glyph('repeat')+" Rebuild", rebuild_project_path(project), class: "btn btn-xs btn-warning" %>
+          <%= link_to glyph('refresh')+" Refresh", refresh_project_path(project), class: "btn btn-xs btn-info" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

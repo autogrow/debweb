@@ -61,7 +61,15 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def build
+  def rebuild
+    strio = StringIO.new
+    log   = Logger.new strio
+    Services::AptlyDropper.new(@project, log).process
+    Services::AptlyBuilder.new(@project, log).process
+    @log  = strio.string
+  end
+
+  def refresh
     strio = StringIO.new
     log   = Logger.new strio
     Services::AptlyBuilder.new(@project, log).process

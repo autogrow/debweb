@@ -14,4 +14,8 @@ class Project < ActiveRecord::Base
     branches.map {|b| b.component_name }
   end
 
+  def repos
+    branches.map {|b| b.repo_name }
+  end
+
 end

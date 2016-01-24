@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   resources :projects do
     member do
-      get 'build', action: :build
+      get 'refresh', action: :refresh
+      get 'rebuild', action: :rebuild
     end
   end
   
