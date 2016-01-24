@@ -1,18 +1,16 @@
 class Branch < ActiveRecord::Base
-
   serialize :auto_added_packages, Array
 
   belongs_to :project
   has_many :packages
 
-  before_create :set_repo_name
-
-  def set_repo_name
-    repo_name = name
+  def repo_name
+    "#{project.name}-#{component_name}"
   end
 
-  def repo_name=(name)
-    write_attribute(:repo_name, name.parameterize)
+  def name=(val)
+    super(val)
+    self.component_name ||= name.parameterize
   end
 
   def auto_add(package_name)
