@@ -1,17 +1,17 @@
 class Project < ActiveRecord::Base
   has_many :branches
 
-  before_create :set_repo_name
-
   def repo_names
     branches.map {|b| b.repo_name }
   end
 
-  def set_repo_name
-    repo_name = name
+  def name=(val)
+    super(val)
+    self.distribution_name = val.parameterize
   end
 
-  def repo_name=(name)
-    write_attribute(:repo_name, name.parameterize)
+  def components
+    branches.map {|b| b.component_name }
   end
+
 end
