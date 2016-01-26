@@ -1,7 +1,7 @@
 <div class="pull-right ops button-group">
   <%= link_to glyph('edit'), edit_project_path(@project), class: "btn btn-success" %>
-  <%= link_to glyph('repeat')+" Rebuild", edit_project_path(@project), class: "btn btn-warning" %>
-  <%= link_to glyph('refresh')+" Refresh", edit_project_path(@project), class: "btn btn-info" %>
+  <%= link_to glyph('repeat')+" Rebuild", rebuild_project_path(@project), class: "btn btn-warning" %>
+  <%= link_to glyph('refresh')+" Refresh", refresh_project_path(@project), class: "btn btn-info" %>
 </div>
 
 <h1>Project: <%= @project.name %></h1>
