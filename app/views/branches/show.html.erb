@@ -2,7 +2,7 @@
   <%= link_to glyph('edit'), edit_branch_path(@branch), class: "btn btn-sm btn-success" %>
 </div>
 
-<h1><%= @branch.name %> <small><%= @branch.project.name %></small></h1>
+<h1><%= @branch.name %> <small><%= link_to @branch.project.name, @branch.project %></small></h1>
 
 You can import this branch using the following directive:
 
