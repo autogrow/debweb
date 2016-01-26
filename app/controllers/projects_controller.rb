@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :build]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :rebuild, :refresh]
 
   # GET /projects
   # GET /projects.json
@@ -67,6 +67,7 @@ class ProjectsController < ApplicationController
     Services::AptlyDropper.new(@project, log).process
     Services::AptlyBuilder.new(@project, log).process
     @log  = strio.string
+    render :build
   end
 
   def refresh
@@ -74,6 +75,7 @@ class ProjectsController < ApplicationController
     log   = Logger.new strio
     Services::AptlyBuilder.new(@project, log).process
     @log  = strio.string
+    render :build
   end
 
   private
