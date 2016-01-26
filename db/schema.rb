@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20151110112818) do
   create_table "branches", force: :cascade do |t|
     t.string   "name"
     t.integer  "project_id"
+    t.string   "component_name"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "repo_name"
     t.text     "auto_added_packages"
   end
 
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20151110112818) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "repo_name"
+    t.string   "distribution_name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
