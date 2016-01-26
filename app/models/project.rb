@@ -10,6 +10,10 @@ class Project < ActiveRecord::Base
     self.distribution_name = val.parameterize
   end
 
+  def distribution
+    self.distribution_name
+  end
+
   def components
     branches.map {|b| b.component_name }
   end
