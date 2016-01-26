@@ -23,7 +23,7 @@ module Services
         @log.info "Need to create #{b.repo_name}"
         
         begin
-          Aptly.create_repo b.repo_name, dist: @project.repo_name, component: b.repo_name
+          Aptly.create_repo b.repo_name, dist: @project.distribution, component: b.repo_name
           @log.info "Repo #{b.repo_name} was created"
         rescue AptlyError => e
           @log.error e
@@ -59,7 +59,7 @@ module Services
           repo.publish sign: false, component: b.repo_name
           @log.info "Published repo #{name} for the first time"
         rescue AptlyError
-          system "aptly publish update #{@project.repo_name}"
+          system "aptly publish update #{@project.distribution}"
           if $?.success?
             @log.info "Updated published packages for #{name}"
           else
