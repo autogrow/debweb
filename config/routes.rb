@@ -88,4 +88,12 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+
+  DebianRepoServer = Proc.new do |env|
+    Rack::Directory.new(File.join(Rails.root, "/aptly/public")).call(env)
+  end
+
+  mount DebianRepoServer, at: '/debian'
+
 end
