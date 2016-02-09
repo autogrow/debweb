@@ -1,5 +1,5 @@
 ---
 aptly:
-  path: ./aptly
-  exec: /usr/bin/aptly
-  config: ./aptly.conf
+  exec: "/usr/bin/aptly"
+  config: "/home/robert/.aptly.conf"
+  path: "/home/robert/src/debweb/aptly"

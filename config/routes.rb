@@ -91,7 +91,7 @@ Rails.application.routes.draw do
 
 
   DebianRepoServer = Proc.new do |env|
-    Rack::Directory.new(File.join(Rails.root, "/aptly/public")).call(env)
+    Rack::Directory.new(Rails.root.join("aptly","public")).call(env)
   end
 
   mount DebianRepoServer, at: '/debian'
