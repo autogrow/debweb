@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get 'library' => 'library#index', as: :library
   get 'library/rescan' => 'library#rescan', as: :rescan_library
 
+  get 'aptly' => 'aptly#index', as: :aptly
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
